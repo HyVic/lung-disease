@@ -1,82 +1,114 @@
 <template>
-  <div ref="pieChart" id="main" style="width: 100%; height: 500px"> </div>
+  <div ref="pieChart" id="main" style="width: 100%; height: 500px"></div>
 </template>
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 import * as echarts from "echarts";
+import { chartDataList } from "../../utils/dataList";
 const props = defineProps({
   sortType: {
     type: String,
-  }
-})
+  },
+});
 const pieChart = ref<HTMLElement>();
 const myChart2 = ref<any>();
+const hours = [
+  "B Cell1",
+  "B Cell2",
+  "B Cell3",
+  "B Cell4",
+  "B Cell5",
+  "B Cell6",
+  "B Cell7",
+  "B Cell8",
+  "B Cell9",
+  "B Cell10",
+  "B Cell11",
+  "B Cell12",
+  "B Cell13",
+  "B Cell14",
+  "B Cell15",
+  "B Cell16",
+  "B Cell17",
+  "B Cell18",
+  "B Cell19",
+  "B Cell20",
+  "B Cell21",
+  "B Cell22",
+  "B Cell23",
+  "B Cell24",
+];
+// prettier-ignore
+const days = [
+    'gene1', 'gene2', 'gene3',
+    'gene4', 'gene5', 'gene6', 'gene7','gene8','gene9','gene10','gene11','gene12','gene13'
+];
+
 const initPieEcharts = () => {
-  myChart2.value=echarts.init(pieChart.value!)
+  myChart2.value = echarts.init(pieChart.value!);
   myChart2.value.setOption({
-    title:{
-      text:`${props.sortType}`,
-      x:'center',
-      top:30,
-      left:'center'
+    tooltip: {
+      position: "top",
     },
-    tooltip:{
-      trigger:'item',
-      formatter:'{b}:{c}'
+    toolbox: {
+      show: true,
+      feature: {
+        mark: { show: true },
+        dataView: { show: true, readOnly: false },
+        restore: { show: true },
+        saveAsImage: { show: true },
+      },
     },
-    legend:{
-      type:'scroll',
-      orient:'horizontal',
-      left:'center',
-      bottom:30,
-      height:150,
-      data:['Projects','Species','Cells','Cell types','Samples','Treatment/Diseases']
+    grid: {
+      height: "50%",
+      top: "10%",
     },
-    color:['#f2d2a2','#54a7de','#76dcfb','#7ea1ed','#5ae05a','#365baa'],
-    series:[
+    xAxis: {
+      axisLabel: {
+        interval: 0,
+        rotate: 40,
+      },
+      type: "category",
+      data: hours,
+      splitArea: {
+        show: true,
+      },
+    },
+    yAxis: {
+      type: "category",
+      data: days,
+      splitArea: {
+        show: true,
+      },
+    },
+    visualMap: {
+      min: 0,
+      max: 10,
+      calculable: true,
+      orient: "horizontal",
+      left: "center",
+      bottom: "15%",
+    },
+    series: [
       {
-        name:'文章分类数量',
-        type: 'pie',
-        radius: [20, 120],
-        center: ['50%', '50%'],
-        roseType: 'radius',
-        itemStyle: {
-          borderRadius: 5
+        name: "Punch Card",
+        type: "heatmap",
+        data: chartDataList,
+        label: {
+          show: true,
         },
- /*       emphasis: {
-          label: {
-            show: true
-          }
-        },*/
-        data:[
-          {name:'Projects',value:10},
-          {name:'Species',value:12},
-          {name:'Cells',value:20},
-          {name:'Cell types',value:15},
-          {name:'Samples',value:13},
-          {name:'Treatment/Diseases',value:12}
-        ],
-        emphasis:{
-          itemStyle:{
-            shadowBlur:10,
-            shadowOffsetX:0,
-            shadowColor:'rgba(0,0,0,0.5)'
-          }
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowColor: "rgba(0, 0, 0, 0.5)",
+          },
         },
-        label:{
-          show:true,
-          position:'outside',
-          formatter:'{b}:{c}'
-        }
-      }
-    ]
-  })
-}
+      },
+    ],
+  });
+};
 onMounted(() => {
-  initPieEcharts()
-  console.log(props.sortType)
+  initPieEcharts();
 });
 </script>
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

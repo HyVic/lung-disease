@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4673398 */
-  src: url('iconfont.woff2?t=1725522760212') format('woff2'),
-       url('iconfont.woff?t=1725522760212') format('woff'),
-       url('iconfont.ttf?t=1725522760212') format('truetype');
+  src: url('iconfont.woff2?t=1729066296092') format('woff2'),
+       url('iconfont.woff?t=1729066296092') format('woff'),
+       url('iconfont.ttf?t=1729066296092') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,114 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jibing-:before {
+  content: "\e608";
+}
+
+.icon-cells:before {
+  content: "\e625";
+}
+
+.icon-xibaocells:before {
+  content: "\e600";
+}
+
+.icon-All-samples:before {
+  content: "\e603";
+}
+
+.icon-sahre:before {
+  content: "\e613";
+}
+
+.icon-icon-test:before {
+  content: "\e601";
+}
+
+.icon-projects:before {
+  content: "\e606";
+}
+
+.icon-education-research-_experiment-samples:before {
+  content: "\e8da";
+}
+
+.icon-icon_speciesclassift_norx:before {
+  content: "\e615";
+}
+
+.icon-hospital-nor:before {
+  content: "\e693";
+}
+
+.icon-tianjiafuwutuceng:before {
+  content: "\e80e";
+}
+
+.icon-project:before {
+  content: "\e609";
+}
+
+.icon-Cells:before {
+  content: "\e632";
+}
+
+.icon-Project-projects:before {
+  content: "\e60a";
+}
+
+.icon-qukuailian:before {
+  content: "\e65e";
+}
+
+.icon-zhitutubiao_tianjiazhibeizhen:before {
+  content: "\e6f2";
+}
+
+.icon-species:before {
+  content: "\e643";
+}
+
+.icon-filtering_samples:before {
+  content: "\e6e5";
+}
+
+.icon-a-Freesamples:before {
+  content: "\e602";
+}
+
+.icon-animalfootprint:before {
+  content: "\e718";
+}
+
+.icon-human:before {
+  content: "\e676";
+}
+
+.icon-Humanresources:before {
+  content: "\e639";
+}
+
+.icon-HUMAN-COMPUTERINTERACTION:before {
+  content: "\e7f0";
+}
+
+.icon-animal:before {
+  content: "\e642";
+}
+
+.icon-animal1:before {
+  content: "\e65c";
+}
+
+.icon-human1:before {
+  content: "\e909";
+}
+
+.icon-user-multiple-circle--close-geometric-human-multip:before {
+  content: "\e754";
 }
 
 .icon-cha:before {
