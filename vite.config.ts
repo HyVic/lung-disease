@@ -3,7 +3,13 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// 压缩gzip
 import viteCompression from 'vite-plugin-compression'
+// 打包进度
+import progress from 'vite-plugin-progress'
+// 自动重启
+import ViteRestart from 'vite-plugin-restart'
+import legacy from '@vitejs/plugin-legacy'
 // import { visualizer } from 'rollup-plugin-visualizer'
 // import viteImagemin from "vite-plugin-imagemin"
 // https://vitejs.dev/config/
@@ -14,6 +20,7 @@ export default defineConfig({
         defineModel: true,
       }
     }),
+    progress(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
@@ -28,20 +35,25 @@ export default defineConfig({
       algorithm: 'gzip', // 压缩算法
       ext: '.gz' // 文件类型
     }),
-    // visualizer(),
-    // viteImagemin() src/assets/JING411.jpg
+    ViteRestart({
+      restart: ['*.config.[jt]s', '**/config/*.[jt]s', '*.config.cjs']
+    }),
+    legacy()
   ],
   css: {
     devSourcemap: true
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          echarts: ['echarts']
-        }
-      }
-    }
+    //打包文件名称
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   }
 /*   server: {
     host: '192.168.3.88',

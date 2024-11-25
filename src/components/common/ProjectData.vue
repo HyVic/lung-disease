@@ -97,7 +97,8 @@ const Close = () => {
           <el-tabs type="border-card" v-model="editableTabsValue" class="demo-tabs">
             <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
               <div class="content-item">
-                {{item.content}}
+                <!-- {{item.content}} -->
+                <img style="width: 100%;height: 400px;" src="../../assets/bg.png" alt="">
               </div>
             </el-tab-pane>
           </el-tabs>
@@ -145,6 +146,7 @@ $color-blue: #365baa;
       width: 100%;
       padding: 30px;
       box-sizing: border-box;
+      height: 600px;
       .title{
         text-align: left;
         padding-bottom: 10px;
